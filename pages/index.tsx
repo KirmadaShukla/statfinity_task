@@ -23,7 +23,6 @@ const Home: React.FC<HomeProps> = ({ pokemons }) => {
     <div className="p-6 min-h-screen bg-gray-100 text-center">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">Pokémon Explorer</h1>
 
-      {/* Search Input */}
       <div className="mb-6">
         <input
           type="text"
@@ -34,7 +33,7 @@ const Home: React.FC<HomeProps> = ({ pokemons }) => {
         />
       </div>
 
-      {/* Pokémon Grid */}
+   
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {filteredPokemons.length > 0 ? (
           filteredPokemons.map((pokemon) => (

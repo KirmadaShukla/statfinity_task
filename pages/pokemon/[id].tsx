@@ -19,11 +19,9 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-md w-full text-center">
-        {/* Pokémon Name */}
         <h1 className="text-3xl font-bold capitalize text-gray-800">{pokemon.name}</h1>
         <p className="text-gray-600 text-lg">ID: {pokemon.id}</p>
 
-        {/* Pokémon Image */}
         <div className="flex justify-center my-4">
           <Image
             src={pokemon.sprite}
@@ -35,7 +33,6 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
           />
         </div>
 
-        {/* Pokémon Type */}
         <h2 className="text-xl font-semibold text-gray-700 mt-4">Type</h2>
         <div className="flex justify-center gap-2 mt-2">
           {pokemon.types.map((type) => (
@@ -45,7 +42,6 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
           ))}
         </div>
 
-        {/* Pokémon Abilities */}
         <h2 className="text-xl font-semibold text-gray-700 mt-4">Abilities</h2>
         <ul className="mt-2 space-y-1">
           {pokemon.abilities.map((ability) => (
@@ -55,7 +51,6 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
           ))}
         </ul>
 
-        {/* Pokémon Stats */}
         <h2 className="text-xl font-semibold text-gray-700 mt-4">Stats</h2>
         <div className="grid grid-cols-2 gap-3 mt-2">
           {pokemon.stats.map((stat) => (
@@ -65,7 +60,6 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
           ))}
         </div>
 
-        {/* Pokémon Moves */}
         <h2 className="text-xl font-semibold text-gray-700 mt-4">Moves</h2>
         <div className="flex flex-wrap gap-2 justify-center mt-2">
           {pokemon.moves.slice(0, 10).map((move) => (
@@ -79,7 +73,6 @@ const PokemonPage: React.FC<PokemonPageProps> = ({ pokemon }) => {
   );
 };
 
-// **Fetch Pokémon details from API using SSR**
 export async function getServerSideProps({ params }: { params: { id: string } }) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
   const data = await res.json();
