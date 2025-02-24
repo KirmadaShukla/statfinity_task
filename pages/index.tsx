@@ -36,7 +36,6 @@ const Home: React.FC<HomeProps> = ({ pokemons }) => {
   );
 };
 
-// **Server-side rendering**
 export async function getServerSideProps() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
   const data = await res.json();
@@ -44,11 +43,11 @@ export async function getServerSideProps() {
   const pokemons = data.results.map((pokemon: any, index: number) => ({
     name: pokemon.name,
     url: pokemon.url,
-    id: index + 1, // Pokémon IDs start from 1
+    id: index + 1, 
   }));
 
   return {
-    props: { pokemons }, // Pass data to the page component
+    props: { pokemons }, 
   };
 }
 
